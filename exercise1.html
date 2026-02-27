@@ -6,15 +6,40 @@
 <body>
     <input type="text" id="textInput" placeholder="Type something here..."/>
         <label id="textLabel"></label>
-            <button onclick ="changeColour()" id="redButton" style="color:red;">Red</button>
-            <button onclick ="changeColour()" id="blueButton" style="color:blue;">Blue</button>
-            <button onclick ="changeColour()" id="greenButton" style="color:green;">Green</button>
-            <button onclick ="changeColour()" id="orangeButton" style="color:orange;">Orange</button>
-            <button onclick ="changeColour()" id="purpleButton" style="color:purple;">Purple</button>
+            <button onclick ="changeColourRed()" id="redButton" style="color:red;">Red</button>
+            <button onclick ="changeColourBlue()" id="blueButton" style="color:blue;">Blue</button>
+            <button onclick ="changeColourGreen()" id="greenButton" style="color:green;">Green</button>
+            <button onclick ="changeColourOrange()" id="orangeButton" style="color:orange;">Orange</button>
+            <button onclick ="changeColourPurple()" id="purpleButton" style="color:purple;">Purple</button>
 </body>
 <script type="text/javascript">
-    button.addEventListener('click', function(){
-        button.style.color = 'red';
+    function changeColourRed(){
+        var textInputElement = document.getElementById("textLabel");
+        textInputElement.style.color = 'red';
+    }
+    function changeColourBlue(){
+        var textInputElement = document.getElementById("textLabel");
+        textInputElement.style.color = 'blue';
+    }
+    function changeColourGreen(){
+        var textInputElement = document.getElementById("textLabel");
+        textInputElement.style.color = 'green';
+    }
+    function changeColourOrange(){
+        var textInputElement = document.getElementById("textLabel");
+        textInputElement.style.color = 'orange';
+    }
+    function changeColourPurple(){
+        var textInputElement = document.getElementById("textLabel");
+        textInputElement.style.color = 'purple';
+    }
+    const textLabel = document.getElementById("textLabel");
+    const textInput = document.getElementById("textInput");
+    
+    textInput.addEventListener("keydown", (event)=>{
+        if(event.key === "Enter"){
+            textLabel.textContent = textInput.value;
+        }
     });
     
 </script>
