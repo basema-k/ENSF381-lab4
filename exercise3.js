@@ -82,8 +82,28 @@ function sortById()
    render();
 }
 deleteBtn.addEventListener("click", deleteUser)
-function deleteUser(){
-    let id = deleteIdInput.nodeValue;
+async function deleteUser(){
+    let id = deleteIdInput.value;
     console.log(id);
+    user_for_deletion = null;
+    users.forEach((user) => {
+    if (user.id == id)
+        user_for_deletion = user;
+    })
+    if (user_for_deletion == null)
+    {
+        console.log("cannot delete user. No users with id "+ id +" found");
+    }
+    else
+    {
+        try{
+        await fetch( "https://69a1dc0a2e82ee536fa2641e.mockapi.io/users_api/"+id, {    method: "DELETE"});
+        retrieveData();
+        }
+        catch (error)
+        {
+            console.log("User is in the database, but deletion failed: " + error);
+        }
+    }
 
 }
